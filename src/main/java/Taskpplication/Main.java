@@ -1,4 +1,4 @@
-package main.java;
+package Taskpplication;
 
 public class Main {
 }
