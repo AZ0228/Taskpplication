@@ -1,4 +1,4 @@
-package test.java;
+package Taskpplication;
 
 public class Test {
 }

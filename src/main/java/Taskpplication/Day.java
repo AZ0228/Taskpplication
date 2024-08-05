@@ -85,10 +85,10 @@ public class Day {
         return true;
     }
 
-    /*
+    
     public static void main(String[] args) {        
         LocalDateTime myObj = LocalDateTime.now(); // Create a date object
         System.out.println(myObj); // Display the current date
     }
-        */
+        
 }
