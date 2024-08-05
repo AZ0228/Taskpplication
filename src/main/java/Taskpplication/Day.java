@@ -86,9 +86,11 @@ public class Day {
     }
 
     
-    public static void main(String[] args) {        
-        LocalDateTime myObj = LocalDateTime.now(); // Create a date object
-        System.out.println(myObj); // Display the current date
+    public static void main(String[] args) {
+    	LocalDateTime dt = LocalDateTime.now();
+    	Task task1 = new Task("title", "description", "group", dt, 1111);
+    	Task task2 = new Task("title2", "description2", "group2", dt, 1112);
+    	System.out.println(task1.equals(task2));
     }
         
 }

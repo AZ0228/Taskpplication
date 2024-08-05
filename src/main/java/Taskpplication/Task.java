@@ -105,18 +105,20 @@ class Task {
 	 * @param o 	the object to compare against.
 	 * @return 		true if date_time is equal.
 	 */
-    /*
 	@Override
 	public boolean equals(Object o) {
-		if ( o.getType() != this.getType() ) {
-			return false;
+		if ( o == this ) {
+			return true;
 		}
-		Task other = ( Task )o;
-
-		if ( date_time.isEqual(other) ) {
+		
+		if (!(o instanceof Task)) {
+			return false;
+	    }
+		
+		Task other = ( Task ) o;
+		if ( date_time.equals(other.getDateTime()) ) {
 			return true;
 		}
 		return false;
 	}
-    */
 }
