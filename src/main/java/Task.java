@@ -1,5 +1,4 @@
-
-import java.time.LocalDateTime
+import java.time.LocalDateTime;
 
 class Task {
 
@@ -18,7 +17,7 @@ class Task {
 	 * @param dt 	date and time
 	 * @param id 	this task's id
 	 */
-	public Event(String t, String d, String g, LocalDateTime dt, int id) {
+	public Task(String t, String d, String g, LocalDateTime dt, int id) {
 		title = t;
 		description = d;
 		group = g;
@@ -55,7 +54,7 @@ class Task {
 	 * @param d 	the new date and time.
 	 */
 	public void setDateTime(LocalDateTime dt) {
-		date_time = d
+		date_time = dt;
 	}
 
 	/**
@@ -104,6 +103,7 @@ class Task {
 	 * @param o 	the object to compare against.
 	 * @return 		true if date_time is equal.
 	 */
+    /*
 	@Override
 	public boolean equals(Object o) {
 		if ( o.getType() != this.getType() ) {
@@ -116,4 +116,5 @@ class Task {
 		}
 		return false;
 	}
+    */
 }
