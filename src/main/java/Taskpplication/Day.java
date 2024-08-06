@@ -83,14 +83,5 @@ public class Day {
     public boolean remove_task(int task_id) {
         task_list.remove(task_id);
         return true;
-    }
-
-    
-    public static void main(String[] args) {
-    	LocalDateTime dt = LocalDateTime.now();
-    	Task task1 = new Task("title", "description", "group", dt, 1111);
-    	Task task2 = new Task("title2", "description2", "group2", dt, 1112);
-    	System.out.println(task1.equals(task2));
-    }
-        
+    }   
 }

@@ -2,7 +2,12 @@ package Taskpplication;
 
 import java.time.LocalDateTime;
 
-class Task {
+/**
+ * The Task class represents a task, its organization,
+ * and when it takes place.
+ * @version 1.0
+ */
+public class Task {
 
 	private String title;
 	private String description;
