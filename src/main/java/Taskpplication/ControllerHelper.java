@@ -94,30 +94,22 @@ public class ControllerHelper
 	
 	public static void openTask()
 	{
-		if(taskCreatorOpen_)
+		try
 		{
+			File file = new File("src/main/resources/Task.fxml");
+			FileInputStream stream = new FileInputStream(file);
+			FXMLLoader loader = new FXMLLoader();
+			Parent root = loader.load(stream);
+			Scene scene = new Scene(root);
+			Stage task = new Stage();
+			task.setScene(scene);
+			task.setResizable(false);
+			task.setTitle("Task");
+			task.show();
 		}
-		else
+		catch(IOException e)
 		{
-			try
-			{
-				taskCreatorOpen_ = true;
-				File file = new File("src/main/resources/TaskCreator.fxml");
-				FileInputStream stream = new FileInputStream(file);
-				FXMLLoader loader = new FXMLLoader();
-				Parent root = loader.load(stream);
-				Scene scene = new Scene(root);
-				Stage taskCreator = new Stage();
-				taskCreator.setScene(scene);
-				taskCreator.setResizable(false);
-				taskCreator.setTitle("Task Creator");
-				taskCreator.setOnCloseRequest(e -> taskCreatorOpen_ = false);
-				taskCreator.show();
-			}
-			catch(IOException e)
-			{
-				e.printStackTrace();
-			}
+			e.printStackTrace();
 		}
 	}
 }

@@ -88,7 +88,7 @@ public class WeekController implements Initializable
 	        
             rectangle.setOnMouseClicked(event -> 
 	        {
-	        	
+	        	ControllerHelper.openTask();
 	        });
             Text text = new Text("Example task: " + i);
             text.setMouseTransparent(true);
