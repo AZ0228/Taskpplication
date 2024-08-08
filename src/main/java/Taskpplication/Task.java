@@ -24,13 +24,38 @@ public class Task {
 	 * @param dt 	date and time
 	 * @param id 	this task's id
 	 */
-	public Task(String t, String d, String g, LocalDateTime dt, int id) {
+	public Task(String t, String d, String g, LocalDateTime dt, int id, int dayId) {
 		title = t;
 		description = d;
 		group = g;
 		date_time = dt;
 		task_id = id;
 	}
+
+	/**
+	 * Task constructor
+	 * @param t		title
+	 * @param d 	description
+	 * @param g 	group name
+	 * @param dt 	date and time
+	 */
+	public Task(String t, String d, String g, LocalDateTime dt) {
+		title = t;
+		description = d;
+		group = g;
+		date_time = dt;
+	}
+
+	public Task(){}
+
+	/**
+	 * Sets the id.
+	 * @param id 	the new group name.
+	 */
+	public void setId(int id) {
+		task_id=id;
+	}
+
 
 	/**
 	 * Sets the title.
@@ -50,7 +75,7 @@ public class Task {
 
 	/**
 	 * Sets the group name.
-	 * @param d 	the new group name.
+	 * @param g 	the new group name.
 	 */
 	public void setGroup(String g) {
 		group = g;
@@ -58,7 +83,7 @@ public class Task {
 
 	/**
 	 * Sets the date and time.
-	 * @param d 	the new date and time.
+	 * @param dt 	the new date and time.
 	 */
 	public void setDateTime(LocalDateTime dt) {
 		date_time = dt;
@@ -125,5 +150,16 @@ public class Task {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Task{" +
+				"id=" + task_id +
+				", timestamp=" + date_time +
+				", description='" + description + '\'' +
+				", title='" + title + '\'' +
+				", groupName='" + group + '\'' +
+				'}';
 	}
 }
