@@ -14,6 +14,7 @@ public class Task {
 	private String group;
 	private LocalDateTime date_time;
 	private int task_id;
+	private boolean complete;
 
 
 	/**
@@ -24,12 +25,13 @@ public class Task {
 	 * @param dt 	date and time
 	 * @param id 	this task's id
 	 */
-	public Task(String t, String d, String g, LocalDateTime dt, int id, int dayId) {
+	public Task(String t, String d, String g, LocalDateTime dt, int id, int dayId, boolean c) {
 		title = t;
 		description = d;
 		group = g;
 		date_time = dt;
 		task_id = id;
+		complete = c;
 	}
 
 	/**
@@ -88,6 +90,14 @@ public class Task {
 	public void setDateTime(LocalDateTime dt) {
 		date_time = dt;
 	}
+	
+	/**
+	 * Sets the completion of this task.
+	 * @param c	the completion.
+	 */
+	public void setComplete(boolean c) {
+		complete = c;
+	}
 
 	/**
 	 * Returns the title of this task.
@@ -127,6 +137,14 @@ public class Task {
 	 */
 	public int getId() {
 		return task_id;
+	}
+	
+	/**
+	 * Returns the completion of this task.
+	 * @return	complete
+	 */
+	public boolean getComplete() {
+		return complete;
 	}
 
 	/**
