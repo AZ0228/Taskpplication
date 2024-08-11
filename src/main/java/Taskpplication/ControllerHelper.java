@@ -13,9 +13,11 @@ public class ControllerHelper
 {
 	private static Stage primaryStage_;
 	private static int month_;
+	private static int year_ = 2024;
+	private static Month monthObject_;
 	private static int week_;
 	private static boolean taskCreatorOpen_ = false;
-	
+
 	public static void setPrimaryStage(Stage primaryStage)
 	{
 		primaryStage_ = primaryStage;
@@ -23,7 +25,18 @@ public class ControllerHelper
 	
 	public static void setMonth(int month)
 	{
+		if(month == 0)
+		{
+			month = 12;
+			year_--;
+		}
+		else if(month == 13)
+		{
+			month = 1;
+			year_++;
+		}
 		month_ = month;
+		monthObject_ = new Month(month_, year_);
 	}
 	
 	public static void setWeek(int week)
@@ -34,6 +47,11 @@ public class ControllerHelper
 	public static int getMonth()
 	{
 		return month_;
+	}
+	
+	public static Month getMonthObject()
+	{
+		return monthObject_;
 	}
 	
 	public static int getWeek()

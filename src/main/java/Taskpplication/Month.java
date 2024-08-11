@@ -44,8 +44,8 @@ public class Month {
 		int Y = month_number > 2 ? year % 100 : (year-1) % 100;
 		int W = (k + (int)Math.floor(2.6*m - 0.2) -(2*C) + Y +(int)Math.floor(Y/4) + (int)Math.floor(C/4) + 7) % 7;
 		
-		System.out.println(W);
-		System.out.println(m);
+//		System.out.println(W);
+//		System.out.println(m);
 		int day = 1 - W;
 		int prev_month = month_number == 1 ? 12 : month_number - 1;
 		int prev_year = month_number == 1 ? year - 1 : year;
@@ -53,25 +53,34 @@ public class Month {
 		int next_year = month_number == 12 ? year + 1 : year;
 		int prev_month_size = monthSize(prev_month, prev_year);
 		int month_size = monthSize(month_number, year);
+		
 		for ( int i = 0; i < 6; i++ ) {
 			days[i] = new Day[7];
 			for ( int j = 0; j < 7; j++ ) {
+				boolean outsideMonth = false;
 				LocalDate ld;
 				if ( day > 0 && day <= month_size ) {
 					ld = LocalDate.of(year, month_number, day);
 				}
 				else if ( day > month_size ) {
 					ld = LocalDate.of(next_year, next_month, day - month_size);
+					outsideMonth = true;
 				}
 				else {
 					ld = LocalDate.of(prev_year, prev_month, prev_month_size + day);
+					outsideMonth = true;
 				}
 				days[i][j] = new Day(ld);
+				days[i][j].setOutsideMonth(outsideMonth);
 				day++;
 			}
 		}
 	}
 	
+	public int getMonthNumber()
+	{
+		return month_number;
+	}
 	/**
 	 * Returns the number of days in the month and year given.
 	 * @param m		month number, January = 1, December = 12
