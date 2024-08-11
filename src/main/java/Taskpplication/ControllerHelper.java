@@ -14,6 +14,7 @@ public class ControllerHelper
 	private static Stage primaryStage_;
 	private static int month_;
 	private static int week_;
+	private static int id_;
 	private static boolean taskCreatorOpen_ = false;
 	
 	public static void setPrimaryStage(Stage primaryStage)
@@ -31,6 +32,10 @@ public class ControllerHelper
 		week_ = week;
 	}
 	
+	public static void setId(int id) {
+		id_ = id;
+	}
+	
 	public static int getMonth()
 	{
 		return month_;
@@ -41,6 +46,9 @@ public class ControllerHelper
 		return week_;
 	}
 	
+	public static int getId() {
+		return id_;
+	}
 	
 	public static void switchView(String fxml)
 	{
@@ -92,8 +100,9 @@ public class ControllerHelper
 		}
 	}
 	
-	public static void openTask()
+	public static void openTask(int id)
 	{
+		id_ = id;
 		try
 		{
 			File file = new File("src/main/resources/Task.fxml");

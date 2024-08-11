@@ -3,6 +3,7 @@ package Taskpplication;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Taskpplication.Database.TaskDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,24 +31,34 @@ public class TaskController implements Initializable
 
     @FXML
     private Text titleText;
+    
+    private int id;
+    private TaskDAO taskDao;
 
     @FXML
     void deleteTask(ActionEvent event) 
     {
-
+    	taskDao.deleteTask(id);
     }
 
     @FXML
     void editTask(ActionEvent event) 
     {
-
+    	ControllerHelper.setId(id);
+    	ControllerHelper.openTaskCreator();
     }
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
-		// TODO Auto-generated method stub
-		
+		this.id = ControllerHelper.getId();
+        this.taskDao = new TaskDAO();
+		Task task = taskDao.getTask(id);
+		dateText.setText(task.getDateTime().toLocalDate().toString());
+		descriptionField.setText(task.getDescription());
+		groupText.setText(task.getGroup());
+		timeText.setText(task.getDateTime().toLocalTime().toString());
+		titleText.setText(task.getTitle());
+		checkBox.setSelected(task.getComplete());
 	}
-
 }
