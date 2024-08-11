@@ -55,6 +55,7 @@
                   <RowConstraints percentHeight="19.0" vgrow="ALWAYS" />
                   <RowConstraints percentHeight="19.0" vgrow="ALWAYS" />
                   <RowConstraints percentHeight="19.0" vgrow="ALWAYS" />
+                  <RowConstraints minHeight="10.0" percentHeight="19.0" prefHeight="30.0" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
                   <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #4c6444;" />

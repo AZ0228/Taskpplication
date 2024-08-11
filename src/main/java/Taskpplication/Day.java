@@ -11,7 +11,7 @@ public class Day {
     private HashMap<Integer, Task> task_list;
     private int dayId;
     private TaskDAO taskDao;
-
+    private boolean outsideMonth = false;
 
     // constructors
     public Day(LocalDate ld, Task[] tl, int id) {
@@ -33,6 +33,16 @@ public class Day {
             task_list.put(t.getId(), t);
         }
 
+    }
+    
+    public void setOutsideMonth(boolean bool)
+    {
+    	outsideMonth = bool;
+    }
+    
+    public boolean getOutsideMonth()
+    {
+    	return outsideMonth;
     }
     
     // accessors
