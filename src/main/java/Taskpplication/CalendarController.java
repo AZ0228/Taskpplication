@@ -142,7 +142,7 @@ public class CalendarController implements Initializable
     
     private void initMonth()
     {
-    	int month = ControllerHelper.getMonthObject().getMonthNumber();
+    	int month = ControllerHelper.getMonth();
 
     	if (month == 1) {
     	    monthText.setText("January");

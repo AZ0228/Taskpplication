@@ -139,4 +139,11 @@ public class Month {
 		}
 		return new Day[7];
 	}
+
+	public Day[] getWeek(int index) {
+		if( index < 1 || index > 7 ) {
+			return null;
+		}
+		return days[index];
+	}
 }

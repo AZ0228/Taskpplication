@@ -19,6 +19,7 @@ public class Day {
     private LocalDate current_date;
     private int dayId;
     private TaskDAO taskDao;
+    private boolean outsideMonth = false;
 
     private HashMap<Integer, Task> task_list;
 
@@ -212,5 +213,15 @@ public class Day {
         task_list.remove(task_id);
         taskDao.deleteTask(task_id);
         return true;
-    }   
+    }
+
+    public void setOutsideMonth(boolean bool)
+    {
+        outsideMonth = bool;
+    }
+
+    public boolean getOutsideMonth()
+    {
+        return outsideMonth;
+    }
 }

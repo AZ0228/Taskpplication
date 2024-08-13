@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Taskpplication.WeekController">
+   <children>
+      <GridPane style="-fx-background-color: #8A6240;">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#prevWeek" text="&lt;" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Text fx:id="monthText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="MONTH" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Button mnemonicParsing="false" onAction="#nextWeek" text="&gt;" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#newTask" text="New Task" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#openMonthView" text="Month View" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+         </children>
+      </GridPane>
+      <ScrollPane prefHeight="354.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+         <content>
+            <GridPane fx:id="calendar" alignment="CENTER" prefHeight="548.0" prefWidth="998.0" style="-fx-background-color: #FBF8F4;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="14.29" />
+                  <ColumnConstraints hgrow="ALWAYS" percentWidth="14.29" />
+                  <ColumnConstraints hgrow="ALWAYS" percentWidth="14.29" />
+                  <ColumnConstraints hgrow="ALWAYS" percentWidth="14.29" />
+                  <ColumnConstraints hgrow="ALWAYS" percentWidth="14.29" />
+                  <ColumnConstraints hgrow="ALWAYS" percentWidth="14.29" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="14.29" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints percentHeight="5.0" vgrow="ALWAYS" />
+                <RowConstraints percentHeight="95.0" vgrow="ALWAYS" />
+              </rowConstraints>
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #4c6444;" />
+                  <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #4c6444;" GridPane.columnIndex="1" />
+                  <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #4c6444;" GridPane.columnIndex="2" />
+                  <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #4c6444;" GridPane.columnIndex="3" />
+                  <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #4c6444;" GridPane.columnIndex="4" />
+                  <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #4c6444;" GridPane.columnIndex="5" />
+                  <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #4c6444;" GridPane.columnIndex="6" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sunday" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Monday" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Tuesday" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Wednesday" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Thursday" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Friday" GridPane.columnIndex="5" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Saturday" GridPane.columnIndex="6" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <VBox fx:id="sunday" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-border-color: white; -fx-border-width: 1; -fx-background-color: #c1a595;" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="monday" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white; -fx-border-width: 1; -fx-background-color: #c1a595;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="tuesday" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white; -fx-border-width: 1; -fx-background-color: #c1a595;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="wednesday" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white; -fx-border-width: 1; -fx-background-color: #c1a595;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="thursday" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white; -fx-border-width: 1; -fx-background-color: #c1a595;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="friday" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white; -fx-border-width: 1; -fx-background-color: #c1a595;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="saturday" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: white; -fx-border-width: 1; -fx-background-color: #c1a595;" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

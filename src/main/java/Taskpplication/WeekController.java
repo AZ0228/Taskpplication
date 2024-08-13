@@ -1,6 +1,9 @@
 package Taskpplication;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -12,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+
 
 public class WeekController implements Initializable
 {
@@ -42,6 +46,8 @@ public class WeekController implements Initializable
 
     @FXML
     private VBox wednesday;
+
+    private List<VBox> dayBoxes;
     
     @FXML
     void openMonthView(ActionEvent event) 
@@ -60,6 +66,8 @@ public class WeekController implements Initializable
     {
 
     }
+
+    private Week week;
     
     @FXML
     void prevWeek(ActionEvent event) 
@@ -69,40 +77,56 @@ public class WeekController implements Initializable
     
     private void initializeWeek()
     {
-    	for(int i = 0; i < 10; i++)
-    	{
-    		Rectangle rectangle = new Rectangle(138, 30);
-            rectangle.setArcWidth(20);
-            rectangle.setArcHeight(20);
-            rectangle.setFill(Color.web("#97694f"));
-            rectangle.setOnMouseEntered(event -> 
-	        {
-	        	rectangle.setFill(Color.web("#18110e"));
-	        });
+        Day[] days = ControllerHelper.getMonthObject().getWeek(ControllerHelper.getWeek());
 
-            rectangle.setOnMouseExited(event -> 
-	        {
-	        	rectangle.setFill(Color.web("#97694f"));
-	        });
-	        
-            rectangle.setOnMouseClicked(event -> 
-	        {
-	        	ControllerHelper.openTask();
-	        });
-            Text text = new Text("Example task: " + i);
-            text.setMouseTransparent(true);
-            text.setFill(Color.WHITE);
-            StackPane pane = new StackPane();
-            pane.getChildren().addAll(rectangle, text);
-            
-            sunday.getChildren().add(pane);
-    	}
+        for (int i = 0; i < days.length; i++) {
+            Day day = days[i];
+            VBox dayBox = dayBoxes.get(i);  // Get the corresponding VBox for the day
+            dayBox.getChildren().clear();   // Clear any existing tasks
+
+            List<Task> tasks = day.return_taskList();
+            for (Task task : tasks) {
+                Rectangle rectangle = new Rectangle(138, 30);
+                rectangle.setArcWidth(20);
+                rectangle.setArcHeight(20);
+                rectangle.setFill(Color.web("#97694f"));
+                rectangle.setOnMouseEntered(event ->
+                        rectangle.setFill(Color.web("#18110e"))
+                );
+
+                rectangle.setOnMouseExited(event ->
+                        rectangle.setFill(Color.web("#97694f"))
+                );
+
+                rectangle.setOnMouseClicked(event ->
+                        ControllerHelper.openTask(task.getId())
+                );
+
+                Text text = new Text(task.getTitle());
+                text.setMouseTransparent(true);
+                text.setFill(Color.WHITE);
+
+                StackPane pane = new StackPane();
+                pane.getChildren().addAll(rectangle, text);
+
+                // Add the pane to the appropriate VBox for the day
+                dayBox.getChildren().add(pane);
+            }
+        }
     }
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
-		initializeWeek();
+        dayBoxes = new ArrayList<>();
+        dayBoxes.add(sunday);    // Index 0
+        dayBoxes.add(monday);    // Index 1
+        dayBoxes.add(tuesday);   // Index 2
+        dayBoxes.add(wednesday); // Index 3
+        dayBoxes.add(thursday);  // Index 4
+        dayBoxes.add(friday);    // Index 5
+        dayBoxes.add(saturday);  // Index 6
+        initializeWeek();
 	}
 
 }

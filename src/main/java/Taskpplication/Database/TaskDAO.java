@@ -23,6 +23,8 @@ public class TaskDAO {
             if (generatedKeys.next()) {
                 task.setId(generatedKeys.getInt(1));
             }
+            //success message
+            System.out.println("successfully inserted task");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -51,6 +53,7 @@ public class TaskDAO {
 
     public List<Task> getTasksByDate(LocalDate date) {
         List<Task> tasks = new ArrayList<>();
+        System.out.println("getting tasks");
         String sql ="SELECT * FROM tasks WHERE FORMATDATETIME(timestamp, 'yyyy-MM-dd') = ?";
         try (Connection connection = DatabaseInitializer.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
