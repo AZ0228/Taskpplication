@@ -1,6 +1,9 @@
 package Taskpplication;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
+import Taskpplication.Database.*;
 
 /**
  * The Month class represents all the days in
@@ -12,6 +15,8 @@ public class Month {
 	private Day[][] days;
 	private int month_number;
 	private int year;
+	private int[][] numTasks;
+	private TaskDAO dao;
 	
 	/**
 	 * Default Month constructor. Fails to construct
@@ -23,11 +28,13 @@ public class Month {
 		if ( mi < 1 || mi > 12 || y < 0 ) {
 			return;
 		}
+
+		dao = new TaskDAO();
 		
 		month_number = mi;
 		year = y;
 		days = new Day[6][7];
-		
+		numTasks = new int[6][7];
 		/*
 		 * k is day (1 to 31)
 		 * m is month (1 = March, ..., 10 = December, 11 = Jan, 12 = Feb)
@@ -73,6 +80,25 @@ public class Month {
 				days[i][j] = new Day(ld);
 				days[i][j].setOutsideMonth(outsideMonth);
 				day++;
+			}
+		}
+
+		refreshTaskNum();
+	}
+
+	public void refreshTaskNum(){
+		List<Task> tasksThisMonth = dao.getTasksForMonth(days[0][0].return_date(), days[5][6].return_date());
+		for (Task task : tasksThisMonth) {
+			LocalDate taskDate = task.getDateTime().toLocalDate();
+			long daysDifference = ChronoUnit.DAYS.between(days[0][0].return_date(), taskDate);
+
+			int x = (int) daysDifference / 7;  // Row index
+			int y = (int) daysDifference % 7;  // Column index
+
+			if (x >= 0 && x < days.length && y >= 0 && y < days[x].length) {
+				Day day = days[x][y];
+				numTasks[x][y]++;
+
 			}
 		}
 	}
@@ -121,6 +147,8 @@ public class Month {
 	public Day[][] getMonth() {
 		return days;
 	}
+
+	public int[][] getNumTasks() { return numTasks; }
 	
 	/**
 	 * Returns the week that the date is in,
@@ -146,4 +174,6 @@ public class Month {
 		}
 		return days[index];
 	}
+
+
 }

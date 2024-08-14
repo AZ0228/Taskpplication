@@ -81,6 +81,7 @@ public class WeekController implements Initializable
 
         for (int i = 0; i < days.length; i++) {
             Day day = days[i];
+            day.getTasks();
             VBox dayBox = dayBoxes.get(i);  // Get the corresponding VBox for the day
             dayBox.getChildren().clear();   // Clear any existing tasks
 

@@ -52,7 +52,11 @@ public class Day {
         this.current_date = ld;
         this.task_list = new HashMap<Integer, Task>();
         this.taskDao = new TaskDAO();
-        List<Task> tasks = taskDao.getTasksByDate(ld);
+
+    }
+
+    public void getTasks(){
+        List<Task> tasks = taskDao.getTasksByDate(current_date);
         for(Task t : tasks) {
             task_list.put(t.getId(), t);
         }

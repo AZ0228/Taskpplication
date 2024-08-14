@@ -120,4 +120,27 @@ public class TaskDAO {
             e.printStackTrace();
         }
     }
+    
+    public List<Task> getTasksForMonth(LocalDate startOfMonth, LocalDate endOfMonth) {
+        List<Task> tasks = new ArrayList<>();
+        String sql = "SELECT * FROM tasks WHERE timestamp BETWEEN ? AND ?";
+        try (Connection connection = DatabaseInitializer.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setDate(1, java.sql.Date.valueOf(startOfMonth));
+            statement.setDate(2, java.sql.Date.valueOf(endOfMonth));
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Task task = new Task();
+                task.setId(resultSet.getInt("id"));
+                task.setDateTime(resultSet.getTimestamp("timestamp").toLocalDateTime());
+                task.setDescription(resultSet.getString("description"));
+                task.setTitle(resultSet.getString("title"));
+                task.setGroup(resultSet.getString("group_name"));
+                tasks.add(task);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tasks;
+    }
 }

@@ -84,6 +84,7 @@ public class CalendarController implements Initializable
     private void initializeCalendar()
     {
     	Day[][] days = month.getMonth();
+		int[][] tasks = month.getNumTasks();
     	for(int i = 0; i < 6; i++)
     	{
     		for(int j = 0; j < 7; j++)
@@ -126,7 +127,7 @@ public class CalendarController implements Initializable
                 
                 Text numTasks = new Text();
                 numTasks.setStyle("-fx-font-size: 20;");
-                numTasks.setText(days[i][j].return_taskList().size()+" Tasks");
+                numTasks.setText(tasks[i][j]+ " Tasks");
                 numTasks.setFill(Color.web("#18110e"));
                 
                 pane.getChildren().add(numDay);
