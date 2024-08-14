@@ -35,6 +35,54 @@ public class TaskCreatorController implements Initializable
 
     @FXML
     private TextField titleField;
+    
+    /**
+     * Sets the date
+     * @param date	the new date
+     */
+    public void setDateField(LocalDate date) {
+    	dateField.setValue(date);
+    }
+    
+    /**
+     * Sets the description
+     * @param description	the new description
+     */
+    public void setDescription(String description) {
+    	descriptionField.setText(description);
+    }
+    
+    /**
+     * Sets the group
+     * @param group	the new group
+     */
+    public void setGroupField(String group) {
+    	groupField.setValue(group);
+    }
+    
+    /**
+     * Sets the hour
+     * @param hour	the new hour
+     */
+    public void setHourField(String hour) {
+    	hourField.setText(hour);
+    }
+    
+    /**
+     * Sets the minute
+     * @param minute	the new minute
+     */
+    public void setMinuteField(String minute) {
+    	minuteField.setText(minute);
+    }
+    
+    /**
+     * Sets the title
+     * @param title	the new title
+     */
+    public void setTitleField(String title) {
+    	titleField.setText(title);
+    }
 
     /**
      * This function defines the behavior of creating a task from GUI inputs

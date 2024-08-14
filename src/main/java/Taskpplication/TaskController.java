@@ -1,6 +1,7 @@
 package Taskpplication;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 import Taskpplication.Database.TaskDAO;
@@ -45,7 +46,12 @@ public class TaskController implements Initializable
     void editTask(ActionEvent event)
     {
         ControllerHelper.setId(id);
-        ControllerHelper.openTaskCreator();
+        Task task = taskDao.getTask(id);
+        taskDao.deleteTask(id);
+        LocalDateTime dt = task.getDateTime();
+        ControllerHelper.openTaskCreator(dt.toLocalDate(), task.getDescription(),
+        		task.getGroup(), String.format("%d", dt.getHour()),
+        		String.format("%d", dt.getMinute()), task.getTitle());
     }
 
     @Override

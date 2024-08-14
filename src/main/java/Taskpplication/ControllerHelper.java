@@ -3,6 +3,7 @@ package Taskpplication;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -103,6 +104,43 @@ public class ControllerHelper
 				FileInputStream stream = new FileInputStream(file);
 				FXMLLoader loader = new FXMLLoader();
 				Parent root = loader.load(stream);
+				Scene scene = new Scene(root);
+				Stage taskCreator = new Stage();
+				taskCreator.setScene(scene);
+				taskCreator.setResizable(false);
+				taskCreator.setTitle("Task Creator");
+				taskCreator.setOnCloseRequest(e -> taskCreatorOpen_ = false);
+				taskCreator.show();
+			}
+			catch(IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void openTaskCreator(LocalDate date, String description, String group,
+			String hour, String minute, String title)
+	{
+		if(taskCreatorOpen_)
+		{
+		}
+		else
+		{
+			try
+			{
+				taskCreatorOpen_ = true;
+				File file = new File("src/main/resources/TaskCreator.fxml");
+				FileInputStream stream = new FileInputStream(file);
+				FXMLLoader loader = new FXMLLoader();
+				Parent root = loader.load(stream);
+				TaskCreatorController controller = loader.getController();
+				controller.setDateField(date);
+				controller.setDescription(description);
+				controller.setGroupField(group);
+				controller.setHourField(hour);
+				controller.setMinuteField(minute);
+				controller.setTitleField(title);
 				Scene scene = new Scene(root);
 				Stage taskCreator = new Stage();
 				taskCreator.setScene(scene);
