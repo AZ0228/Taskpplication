@@ -18,11 +18,13 @@
 <?import javafx.scene.text.Text?>
 
 
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #FBF8F4;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Taskpplication.TaskCreatorController">
    <children>
       <StackPane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #8A6240;">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a Task!">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a Task!" fx:id="header">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>
@@ -69,7 +71,15 @@
                 <MenuItem mnemonicParsing="false" text="Action 2" />
               </items>
             </MenuButton>
-            <ComboBox fx:id="groupField" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="groupField" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="School" />
+                     <String fx:value="Work" />
+                     <String fx:value="Personal" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="10.0" />
@@ -119,7 +129,7 @@
             <Insets top="10.0" />
          </VBox.margin>
          <children>
-            <Button mnemonicParsing="false" onAction="#createTask" text="Create Task" />
+            <Button mnemonicParsing="false" onAction="#createTask" text="Create Task" fx:id="createButton"/>
          </children>
       </StackPane>
    </children>

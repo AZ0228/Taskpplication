@@ -10,10 +10,8 @@ import Taskpplication.Database.TaskDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class TaskCreatorController implements Initializable
@@ -36,6 +34,12 @@ public class TaskCreatorController implements Initializable
 
     @FXML
     private TextField titleField;
+
+    @FXML
+    private Text header;
+
+    @FXML
+    private Button createButton;
     
     /**
      * Sets the date
@@ -146,6 +150,11 @@ public class TaskCreatorController implements Initializable
         hourField.clear();
         minuteField.clear();
         titleField.clear();
+    }
+
+    public void setEdit(){
+        header.setText("Edit Task");
+        createButton.setText("Save Changes");
     }
 
     @Override

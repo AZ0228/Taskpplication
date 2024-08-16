@@ -16,7 +16,6 @@ public class Task {
 	private int task_id;
 	private boolean complete;
 
-
 	/**
 	 * Task constructor
 	 * @param t		title

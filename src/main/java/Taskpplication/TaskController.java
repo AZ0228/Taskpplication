@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class TaskController implements Initializable
 {
@@ -47,6 +48,7 @@ public class TaskController implements Initializable
     @FXML
     void editTask(ActionEvent event)
     {
+        Stage stage = (Stage) dateText.getScene().getWindow();
         ControllerHelper.setId(id);
         Task task = taskDao.getTask(id);
         taskDao.deleteTask(id);
@@ -54,6 +56,8 @@ public class TaskController implements Initializable
         ControllerHelper.openTaskCreator(dt.toLocalDate(), task.getDescription(),
         		task.getGroup(), String.format("%d", dt.getHour()),
         		String.format("%d", dt.getMinute()), task.getTitle());
+        stage.close();
+
     }
 
     @Override

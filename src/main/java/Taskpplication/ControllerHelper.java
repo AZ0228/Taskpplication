@@ -150,6 +150,7 @@ public class ControllerHelper
 				controller.setHourField(hour);
 				controller.setMinuteField(minute);
 				controller.setTitleField(title);
+				controller.setEdit();
 				Scene scene = new Scene(root);
 				Stage taskCreator = new Stage();
 				taskCreator.setScene(scene);
