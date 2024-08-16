@@ -5,6 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * The DatabaseInitializer class initializes and
+ * helps the TaskDAO class connect to the database.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
+ * @version 1.0
+ */
 public class DatabaseInitializer {
     private static final String URL = "jdbc:h2:~/test";
     private static final String USER = "sa";

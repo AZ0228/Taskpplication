@@ -4,6 +4,15 @@ import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.time.DayOfWeek;
 
+/**
+ * The week class represents one week starting on Monday
+ * and ending on Sunday.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
+ * @version 1.0
+ */
 public class Week {
     private final LocalDate start;
     private final LocalDate end;

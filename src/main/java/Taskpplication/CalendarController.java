@@ -13,6 +13,15 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
+/**
+ * The CalendarController class handles all actions available
+ * to the user in the Month view.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
+ * @version 1.0
+ */
 public class CalendarController implements Initializable
 {
 

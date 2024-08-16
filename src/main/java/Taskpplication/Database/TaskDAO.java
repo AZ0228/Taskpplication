@@ -7,6 +7,16 @@ import java.util.List;
 
 import Taskpplication.*;
 
+/**
+ * The TaskDAO class helps all classes in
+ * Taskpplication add to, remove from, edit,
+ * and view the database.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
+ * @version 1.0
+ */
 public class TaskDAO {
     public void addTask(Task task) {
         String sql = "INSERT INTO tasks (timestamp, description, title, group_name) VALUES (?, ?, ?, ?)";

@@ -18,7 +18,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
-
+/**
+ * The WeekController class handles switching
+ * from the Month view to the Week view.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
+ * @version 1.0
+ */
 public class WeekController implements Initializable
 {
 

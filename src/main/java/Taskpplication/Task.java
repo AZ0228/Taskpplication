@@ -7,6 +7,10 @@ import java.time.LocalDateTime;
 /**
  * The Task class represents a task, its organization,
  * and when it takes place.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
  * @version 1.0
  */
 public class Task {
@@ -176,7 +180,11 @@ public class Task {
 		}
 		return false;
 	}
-
+	
+	/**
+	 * Returns a string version of this Task.
+	 * @return a string containing relevant information related to this task.
+	 */
 	@Override
 	public String toString() {
 		return "Task{" +

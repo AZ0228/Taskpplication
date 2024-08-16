@@ -10,6 +10,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The ControllerHelper class contains methods and
+ * variables to help different controllers communicate.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
+ * @version 1.0
+ */
 public class ControllerHelper 
 {
 	private static Stage primaryStage_;

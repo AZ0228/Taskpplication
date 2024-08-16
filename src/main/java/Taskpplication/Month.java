@@ -8,6 +8,10 @@ import Taskpplication.Database.*;
 /**
  * The Month class represents all the days in
  * a specific month and year.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
  * @version 1.0
  */
 public class Month {
@@ -168,7 +172,13 @@ public class Month {
 		}
 		return new Day[7];
 	}
-
+	
+	/**
+	 * Returns an array of Day objects. The array
+	 * is of size 7.
+	 * @param index	an integer in the range [0,5] representing which week to return.
+	 * @return		an array of 7 Day objects.
+	 */
 	public Day[] getWeek(int index) {
 		if( index < 0 || index > 7 ) {
 			return null;

@@ -11,10 +11,12 @@ import Taskpplication.Database.*;
  * The Day class has a list of all the tasks associated with it and a dayID for the database
  * to recognize it. It also has an instance of the TaskDAO so this code can interact with
  * the database is need be.
- * 
- * See below for details on implementation.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
+ * @version 1.0
  */
-
 public class Day {
     private LocalDate current_date;
     private int dayId;

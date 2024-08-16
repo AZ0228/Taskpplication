@@ -14,6 +14,15 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * The TaskCreatorController class handles the creation
+ * and editing of tasks by the user.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
+ * @version 1.0
+ */
 public class TaskCreatorController implements Initializable
 {
 

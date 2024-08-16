@@ -8,6 +8,14 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ * The Main class represents the startup class for Taskpplication.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
+ * @version 1.0
+ */
 public class Main extends Application
 {
     public static void main(String[] args) {

@@ -14,6 +14,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * The TaskController class handles the editing,
+ * deleting, and completing of tasks by the user.
+ * @author Chev Kodama
+ * @author Vincent Tran
+ * @author James Liu
+ * @author Kirsten Szeto
+ * @version 1.0
+ */
 public class TaskController implements Initializable
 {
 
@@ -37,7 +46,11 @@ public class TaskController implements Initializable
 
     private int id;
     private TaskDAO taskDao;
-
+    
+    /**
+     * Deletes the selected task.
+     * @param event	the action event
+     */
     @FXML
     void deleteTask(ActionEvent event)
     {
@@ -47,7 +60,11 @@ public class TaskController implements Initializable
         stage.close();
         ControllerHelper.switchView("Week.fxml");
     }
-
+    
+    /**
+     * Opens a popup window to edit the selected task.
+     * @param event	the action event
+     */
     @FXML
     void editTask(ActionEvent event)
     {
@@ -62,7 +79,10 @@ public class TaskController implements Initializable
         stage.close();
 
     }
-
+    
+    /**
+     * Sets the selected task to complete.
+     */
     @FXML
     void completeTask(){
         Task task = taskDao.getTask(id);
@@ -72,7 +92,10 @@ public class TaskController implements Initializable
         Stage stage = (Stage) dateText.getScene().getWindow();
         stage.close();
     }
-
+    
+    /**
+     * Initializes the view task popup window.
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)
     {
