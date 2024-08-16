@@ -68,7 +68,7 @@
             </Text>
             <Text fx:id="dateText" strokeType="OUTSIDE" strokeWidth="0.0" text="DATE" GridPane.columnIndex="1" />
             <Text fx:id="groupText" strokeType="OUTSIDE" strokeWidth="0.0" text="GROUP" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <CheckBox fx:id="checkBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <CheckBox fx:id="checkBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#completeTask" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Completed:" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" />

@@ -2,7 +2,9 @@ package Taskpplication;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -87,22 +89,40 @@ public class WeekController implements Initializable
             dayBox.getChildren().clear();   // Clear any existing tasks
 
             List<Task> tasks = day.return_taskList();
+            //sort by time
+            tasks.sort(Comparator.comparing(Task::getDateTime));
+
             for (Task task : tasks) {
                 Rectangle rectangle = new Rectangle(138, 30);
                 rectangle.setArcWidth(20);
                 rectangle.setArcHeight(20);
-                rectangle.setFill(Color.web("#97694f"));
-                rectangle.setOnMouseEntered(event ->
-                        rectangle.setFill(Color.web("#18110e"))
-                );
+                if(task.getDateTime().toLocalTime().equals(LocalTime.of(0,0,1))){
+                    rectangle.setFill(Color.web("#726B68"));
+                    rectangle.setOnMouseEntered(event ->
+                            rectangle.setFill(Color.web("#B4ABA6"))
+                    );
 
-                rectangle.setOnMouseExited(event ->
-                        rectangle.setFill(Color.web("#97694f"))
-                );
+                    rectangle.setOnMouseExited(event ->
+                            rectangle.setFill(Color.web("#726B68"))
+                    );
 
-                rectangle.setOnMouseClicked(event ->
-                        ControllerHelper.openTask(task.getId())
-                );
+                    rectangle.setOnMouseClicked(event ->
+                            ControllerHelper.openTask(task.getId())
+                    );
+                } else {
+                    rectangle.setFill(Color.web("#97694f"));
+                    rectangle.setOnMouseEntered(event ->
+                            rectangle.setFill(Color.web("#18110e"))
+                    );
+
+                    rectangle.setOnMouseExited(event ->
+                            rectangle.setFill(Color.web("#97694f"))
+                    );
+
+                    rectangle.setOnMouseClicked(event ->
+                            ControllerHelper.openTask(task.getId())
+                    );
+                }
 
                 Text text = new Text(task.getTitle());
                 text.setMouseTransparent(true);

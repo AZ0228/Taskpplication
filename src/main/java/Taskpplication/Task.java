@@ -1,5 +1,7 @@
 package Taskpplication;
 
+import Taskpplication.Database.TaskDAO;
+
 import java.time.LocalDateTime;
 
 /**
@@ -15,6 +17,7 @@ public class Task {
 	private LocalDateTime date_time;
 	private int task_id;
 	private boolean complete;
+	private TaskDAO taskDAO;
 
 	/**
 	 * Task constructor
@@ -96,6 +99,11 @@ public class Task {
 	 */
 	public void setComplete(boolean c) {
 		complete = c;
+	}
+
+	public void complete(){
+		Task task = taskDAO.getTask(task_id);
+		
 	}
 
 	/**

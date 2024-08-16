@@ -129,7 +129,7 @@ public class ControllerHelper
 	}
 	
 	public static void openTaskCreator(LocalDate date, String description, String group,
-			String hour, String minute, String title)
+			String hour, String minute, String title, int id)
 	{
 		if(taskCreatorOpen_)
 		{
@@ -150,6 +150,7 @@ public class ControllerHelper
 				controller.setHourField(hour);
 				controller.setMinuteField(minute);
 				controller.setTitleField(title);
+				controller.setTaskId(id);
 				controller.setEdit();
 				Scene scene = new Scene(root);
 				Stage taskCreator = new Stage();

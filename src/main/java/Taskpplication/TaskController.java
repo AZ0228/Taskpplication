@@ -2,6 +2,7 @@ package Taskpplication;
 
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 import Taskpplication.Database.TaskDAO;
@@ -55,9 +56,19 @@ public class TaskController implements Initializable
         LocalDateTime dt = task.getDateTime();
         ControllerHelper.openTaskCreator(dt.toLocalDate(), task.getDescription(),
         		task.getGroup(), String.format("%d", dt.getHour()),
-        		String.format("%d", dt.getMinute()), task.getTitle());
+        		String.format("%d", dt.getMinute()), task.getTitle(), id);
         stage.close();
 
+    }
+
+    @FXML
+    void completeTask(){
+        Task task = taskDao.getTask(id);
+        task.setDateTime(task.getDateTime().with(LocalTime.of(0,0,1)));
+        taskDao.updateTask(task);
+        ControllerHelper.switchView("Week.fxml");
+        Stage stage = (Stage) dateText.getScene().getWindow();
+        stage.close();
     }
 
     @Override
@@ -66,6 +77,10 @@ public class TaskController implements Initializable
         this.id = ControllerHelper.getId();
         this.taskDao = new TaskDAO();
         Task task = taskDao.getTask(id);
+        if(task.getDateTime().toLocalTime().equals(LocalTime.of(0,0,1))){
+            checkBox.setSelected(true);
+            checkBox.setDisable(true);
+        }
         dateText.setText(task.getDateTime().toLocalDate().toString());
         descriptionField.setText(task.getDescription());
         groupText.setText(task.getGroup());

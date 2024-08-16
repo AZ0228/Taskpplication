@@ -40,6 +40,10 @@ public class TaskCreatorController implements Initializable
 
     @FXML
     private Button createButton;
+
+
+
+    private int id;
     
     /**
      * Sets the date
@@ -56,6 +60,8 @@ public class TaskCreatorController implements Initializable
     public void setDescription(String description) {
     	descriptionField.setText(description);
     }
+
+    public void setTaskId(int taskId) {id = taskId;}
     
     /**
      * Sets the group
