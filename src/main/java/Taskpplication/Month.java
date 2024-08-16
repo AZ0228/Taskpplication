@@ -87,6 +87,7 @@ public class Month {
 	}
 
 	public void refreshTaskNum(){
+		this.numTasks = new int[6][7];
 		List<Task> tasksThisMonth = dao.getTasksForMonth(days[0][0].return_date(), days[5][6].return_date());
 		for (Task task : tasksThisMonth) {
 			LocalDate taskDate = task.getDateTime().toLocalDate();
@@ -169,7 +170,7 @@ public class Month {
 	}
 
 	public Day[] getWeek(int index) {
-		if( index < 1 || index > 7 ) {
+		if( index < 0 || index > 7 ) {
 			return null;
 		}
 		return days[index];

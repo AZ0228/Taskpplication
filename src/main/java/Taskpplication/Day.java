@@ -56,6 +56,7 @@ public class Day {
     }
 
     public void getTasks(){
+        this.task_list.clear();
         List<Task> tasks = taskDao.getTasksByDate(current_date);
         for(Task t : tasks) {
             task_list.put(t.getId(), t);

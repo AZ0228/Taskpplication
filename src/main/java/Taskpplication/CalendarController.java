@@ -51,7 +51,7 @@ public class CalendarController implements Initializable
     	{
     		if(panes[row][i].getId().equals("OUT"))
     		{
-    			panes[row][i].setStyle("-fx-background-color:  black; -fx-border-color: white; -fx-border-width: 1;");
+    			panes[row][i].setStyle("-fx-background-color:  #C38C6D; -fx-border-color: white; -fx-border-width: 1;");
     		}
     		else
     		{
@@ -66,7 +66,7 @@ public class CalendarController implements Initializable
     	{
     		if(panes[row][i].getId().equals("OUT"))
     		{
-    			panes[row][i].setStyle("-fx-background-color:  gray; -fx-border-color: white; -fx-border-width: 1;");
+    			panes[row][i].setStyle("-fx-background-color:  #E9D5C9; -fx-border-color: white; -fx-border-width: 1;");
     		}
     		else
     		{
@@ -92,7 +92,7 @@ public class CalendarController implements Initializable
     	        StackPane pane = new StackPane();
     	        if(days[i][j].getOutsideMonth())
     	        {
-    	        	pane.setStyle("-fx-background-color:  gray; -fx-border-color: white; -fx-border-width: 1;");
+    	        	pane.setStyle("-fx-background-color:  #E9D5C9; -fx-border-color: white; -fx-border-width: 1;");
     	        	pane.setId("OUT");
     	        }
     	        else
@@ -126,7 +126,7 @@ public class CalendarController implements Initializable
                 numDay.setFill(Color.web("#18110e"));
                 
                 Text numTasks = new Text();
-                numTasks.setStyle("-fx-font-size: 20;");
+                numTasks.setStyle("-fx-font-size: 18;");
                 numTasks.setText(tasks[i][j]+ " Tasks");
                 numTasks.setFill(Color.web("#18110e"));
                 

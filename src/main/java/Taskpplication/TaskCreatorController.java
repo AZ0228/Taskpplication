@@ -14,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class TaskCreatorController implements Initializable
 {
@@ -129,6 +130,10 @@ public class TaskCreatorController implements Initializable
         td.addTask(newTask); // add the task to the database
 
         clear_all(); // clear fields for use next time.
+        Stage stage = (Stage) dateField.getScene().getWindow();
+        ControllerHelper.switchView("Calendar.fxml");
+        ControllerHelper.closeTaskCreator();
+        stage.close();
     }
 
     /**

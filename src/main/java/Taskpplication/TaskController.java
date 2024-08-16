@@ -39,6 +39,8 @@ public class TaskController implements Initializable
     @FXML
     void deleteTask(ActionEvent event)
     {
+        Task task = taskDao.getTask(id);
+
         taskDao.deleteTask(id);
     }
 

@@ -45,6 +45,10 @@ public class ControllerHelper
 	{
 		week_ = week;
 	}
+
+	public static void closeTaskCreator(){
+		taskCreatorOpen_ = false;
+	}
 	
 	public static void setId(int id) {
 		id_ = id;
@@ -73,6 +77,11 @@ public class ControllerHelper
 	{
 		try
 		{
+			if(fxml.equals("Calendar.fxml")){
+				if(monthObject_ != null){
+					monthObject_.refreshTaskNum();
+				}
+			}
 			File file = new File("src/main/resources/" + fxml);
 			FileInputStream stream = new FileInputStream(file);
 			FXMLLoader loader = new FXMLLoader();

@@ -78,6 +78,7 @@ public class WeekController implements Initializable
     private void initializeWeek()
     {
         Day[] days = ControllerHelper.getMonthObject().getWeek(ControllerHelper.getWeek());
+        System.out.println(ControllerHelper.getWeek());
 
         for (int i = 0; i < days.length; i++) {
             Day day = days[i];
