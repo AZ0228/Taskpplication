@@ -42,8 +42,10 @@ public class TaskController implements Initializable
     void deleteTask(ActionEvent event)
     {
         Task task = taskDao.getTask(id);
-
         taskDao.deleteTask(id);
+        Stage stage = (Stage) dateText.getScene().getWindow();
+        stage.close();
+        ControllerHelper.switchView("Week.fxml");
     }
 
     @FXML
